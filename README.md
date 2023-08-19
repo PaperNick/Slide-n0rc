@@ -15,6 +15,38 @@ To get Slide working again follow these steps:
 8. Insert the Redirect URL from step 3
 9. Save and restart Slide
 
+## Local rebuild instructions
+
+1. Install Java 11 (openjdk 11.0.20 2023-07-18) from SDKMAN:
+
+```
+sdk install java 11.0.20-tem
+```
+
+2. Install Android SDK (Android Studio Giraffe | 2022.3.1):
+
+http://developer.android.com/sdk/index.html#Other
+
+Alternatively, check sdkmanager (use version 29, 30 or 34):
+
+https://developer.android.com/tools/sdkmanager
+
+3. Build the project by specifying the Android SDK root folder:
+
+```
+ANDROID_SDK_ROOT="$HOME/Android/Sdk" ./gradlew assemble lint{With,No}GPlay{Debug,Release} test{With,No}GPlay{Debug,Release}UnitTest
+```
+
+4. If some of the unit tests fail, that's fine
+
+5. If the build process is successful, you will find an APK file in directory: `app/build/outputs/apk/noGPlay/debug`
+
+6. Copy `app-noGPlay-debug.apk` file to your phone
+
+7. Install the app
+
+8. Enter your Client ID from the previous section
+
 ## Current project status
 
 This project will be on indefinite hiatus for the foreseeable future, and may not be maintained.
